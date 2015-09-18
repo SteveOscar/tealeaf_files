@@ -1,11 +1,7 @@
-# the delete_at method refers to the item in the index value, so it would delete the '2' from the original array and return 2
-# the delelte method refers to a specific value in the array
+# Replace the word "important" with "urgent" in this string:
 
-numbers = [1, 2, 3, 5, 7]
-#What would the following return?
+advice = "Few things in life are as important as house training your pet dinosaur."
 
-p numbers.delete_at(1)
-p numbers.delete(5)
+advice["important"] = "urgent"
 
-p numbers
-
+puts advice 
