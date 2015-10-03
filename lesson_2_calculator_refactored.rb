@@ -19,53 +19,51 @@ def operation_to_message(op)
   end
 end
 
-
-prompt ("Welcome to the Calculator! Enter your name")
+prompt "Welcome to the Calculator! Enter your name"
 
 name = ''
 loop do
   name = gets.chomp
 
   if name.empty?
-    prompt("Make sure to use a valid name")
+    prompt "Make sure to use a valid name"
   else
     break
   end
 end
 
-prompt("Hi #{name}")
+prompt "Hi #{name}"
 
-loop do #main loop
-
+loop do # main loop
   number1 = ''
   loop do
-  prompt ("What's the first number?")
-  number1 = gets.chomp.to_i
+    prompt "What's the first number?"
+    number1 = gets.chomp.to_i
 
     if valid_number?(number1)
       break
     else
-      prompt ("That doesn't look like a valid number")
+      prompt "That doesn't look like a valid number"
     end
   end
 
   number2 = ''
   loop do
-  prompt ("What's the second number?")
-  number2 = gets.chomp.to_i
+    prompt "What's the second number?"
+    number2 = gets.chomp.to_i
 
     if valid_number?(number2)
       break
     else
-      prompt ("That doesn't look like a valid number")
+      prompt "That doesn't look like a valid number"
     end
   end
 
   operator_prompt = <<-HI
-  What operation would you like to perform? 
+  What operation would you like to perform?
   1 = add
-  2 = subtract 
-  3 = multiply 
+  2 = subtract
+  3 = multiply
   4 = divide
   HI
 
@@ -73,35 +71,33 @@ loop do #main loop
 
   operator = ''
   loop do
-   operator = gets.chomp
+    operator = gets.chomp
 
-   if %w(1 2 3 4).include?(operator)
-    break
-  else
-    prompt("You must choose a number, 1 through 4")
+    if %w(1 2 3 4).include?(operator)
+      break
+    else
+      prompt "You must choose a number, 1 through 4"
+    end
   end
- end
 
- prompt("#{operation_to_message(operator)} the two numbers...")
+  prompt "#{operation_to_message(operator)} the two numbers..."
 
   result = case operator
            when '1'
-            result = number1 + number2
+             result = number1 + number2
            when '2'
-            result = number1 - number2
+             result = number1 - number2
            when '3'
-            result = number1 * number2
+             result = number1 * number2
            when '4'
-            result = number1 / number2
-          end
+             result = number1 / number2
+           end
 
-  prompt ("The result is #{result.to_s}")
+  prompt "The result is #{result}"
 
-  prompt ("Do you want to go again? (Y to go again)")
+  prompt "Do you want to go again? (Y to go again)"
   answer = gets.chomp
   break unless answer.downcase.start_with?('y')
 end
 
-prompt("Thanks for using the Calculator")
-
-    
+prompt "Thanks for using the Calculator"
