@@ -36,8 +36,6 @@ prompt 'Welcome to the game, first to 5 wins...'
 puts      
 loop do
   user_choice = ''
-  human_score = ''
-  computer_score = ''
   loop do
     puts
     prompt "Choose one: #{CHOICES.join(', ')}"
@@ -45,14 +43,13 @@ loop do
     
     if user_choice[0, 1] == 's'
       prompt 'Do you mean Spock or Scissors?'
-      else
+    else
       CHOICES.each do |word|
         if user_choice[0, 1] == word[0, 1]
           user_choice = word
         end
       end
     end
-
 
     if CHOICES.include?(user_choice)
       break
@@ -74,7 +71,7 @@ loop do
     computer_tally += 1
   end
 
-  prompt "The score is you: #{human_tally.to_s} to computer: #{computer_tally.to_s}"
+  prompt "The score is you: #{human_tally} to computer: #{computer_tally}"
 
   break if human_tally > 4 || computer_tally > 4
 end
